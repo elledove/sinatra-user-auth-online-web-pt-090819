@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/sessions/login' do
-
+      puts params
     # the line of code below render the view page in app/views/sessions/login.erb
     erb :'sessions/login'
   end
@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
 
   get '/users/home' do
 
-    @user = User.find(session[:user_id])
+    @user = User.find(session[:user_id]) #first finds the user based stored session hash.
     erb :'/users/home'
   end
 end
